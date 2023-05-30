@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center g-2 text-center">
+    <div class="col-8">
+      <h1>Search your favourite heroes</h1>
+      <form [formGroup]="form" (submit)="searchHero()">
+        <table>
+          <tr>
+            <td>
+              <input
+                type="text"
+                placeholder="spider-man"
+                formControlName="heroName"
+              />
+              <button type="submit" [disabled]="form.invalid">Search</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>

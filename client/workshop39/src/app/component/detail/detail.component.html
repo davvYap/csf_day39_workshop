@@ -1,0 +1,58 @@
+<div class="container">
+  <div
+    *ngIf="hero$ | async as hero; else noHero"
+    class="row justify-content-center align-items-center text-center g-2 my-5"
+  >
+    <div class="col-4">
+      <img
+        [src]="hero.thumbnail.path + '.' + hero.thumbnail.extension"
+        alt="heroImage"
+        class="rounded img-fluid hero-image"
+      />
+    </div>
+    <div class="col-4">
+      <h1 class="fw-bolder">{{ hero.name | uppercase }}</h1>
+      <p>{{ hero.description }}</p>
+
+      <div
+        class="row justify-content-center align-items-center text-center g-2 my-5"
+      >
+        <div class="col-2">
+          <button type="button" class="btn btn-secondary" (click)="back()">
+            Back
+          </button>
+        </div>
+        <div class="col-2">
+          <button type="button" class="btn btn-primary" (click)="comment()">
+            Comment
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="heroComments$ | async as heroCom"
+    class="row justify-content-center align-items-center text-center g-2 my-2"
+  >
+    <div class="col-4">
+      <div *ngFor="let comment of heroCom.comments">
+        <p>{{ comment }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noHero>
+  <div
+    class="row justify-content-center align-items-center text-center g-2 my-5"
+  >
+    <code>Hero detail missing...</code>
+  </div>
+</ng-template>
+
+<ng-template #loading>
+  <div class="row justify-content-center align-items-center g-2 text-center">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
