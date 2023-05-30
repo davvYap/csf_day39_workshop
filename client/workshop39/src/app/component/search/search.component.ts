@@ -26,7 +26,7 @@ export class SearchComponent implements OnInit {
 
   createForm(): FormGroup {
     return this.fb.group({
-      heroName: this.fb.control('hulk', [Validators.required]),
+      heroName: this.fb.control('', [Validators.required]),
     });
   }
 

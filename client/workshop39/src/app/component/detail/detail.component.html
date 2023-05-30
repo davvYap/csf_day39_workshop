@@ -1,7 +1,7 @@
 <div class="container">
   <div
     *ngIf="hero$ | async as hero; else noHero"
-    class="row justify-content-center align-items-center text-center g-2 my-5"
+    class="row justify-content-center align-items-center text-center g-2 my-1"
   >
     <div class="col-4">
       <img
@@ -10,24 +10,29 @@
         class="rounded img-fluid hero-image"
       />
     </div>
-    <div class="col-4">
-      <h1 class="fw-bolder">{{ hero.name | uppercase }}</h1>
-      <p>{{ hero.description }}</p>
 
-      <div
-        class="row justify-content-center align-items-center text-center g-2 my-5"
-      >
-        <div class="col-2">
-          <button type="button" class="btn btn-secondary" (click)="back()">
-            Back
-          </button>
-        </div>
-        <div class="col-2">
-          <button type="button" class="btn btn-primary" (click)="comment()">
-            Comment
-          </button>
-        </div>
+    <div
+      class="row justify-content-center align-items-center text-center g-2 my-1"
+    >
+      <div class="col-8">
+        <h1 class="fw-bolder">{{ hero.name | uppercase }}</h1>
+        <p>{{ hero.description }}</p>
       </div>
+    </div>
+  </div>
+
+  <div
+    class="row justify-content-center align-items-center text-center g-2 my-5"
+  >
+    <div class="col-4">
+      <button type="button" class="btn btn-secondary" (click)="back()">
+        Back
+      </button>
+    </div>
+    <div class="col-4">
+      <button type="button" class="btn btn-primary" (click)="comment()">
+        Comment
+      </button>
     </div>
   </div>
 

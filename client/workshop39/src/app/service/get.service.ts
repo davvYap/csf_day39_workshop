@@ -16,18 +16,18 @@ export class GetService {
     let param = new HttpParams()
       .set('heroName', heroName)
       .set('offset', offset);
-    return this.http.get<any>('http://localhost:8080/api/characters', {
+    return this.http.get<any>('/api/characters', {
       params: param,
     });
   }
 
   searchHeroById(id: number): Observable<hero> {
-    return this.http.get<hero>(`http://localhost:8080/api/characters/${id}`);
+    return this.http.get<hero>(`/api/characters/${id}`);
   }
 
   getHeroComments(id: number): Observable<heroComments> {
-    return this.http.get<heroComments>(
-      `http://localhost:8080/api/character/${id}/comments`
-    );
+    return this.http.get<heroComments>(`/api/character/${id}/comments`);
   }
 }
+
+// http://localhost:8080

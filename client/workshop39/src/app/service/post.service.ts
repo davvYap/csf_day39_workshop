@@ -17,9 +17,11 @@ export class PostService {
     );
 
     return this.http.post<string>(
-      `http://localhost:8080/api/character/${id}`,
+      `/api/character/${id}`,
       dataToPost.toString(),
       { headers: httpHearders }
     );
   }
 }
+
+// http://localhost:8080
